@@ -1,19 +1,19 @@
 services:
-  mysql:
-    image: mariadb:11.4
-    logging:
-      driver: none
-    command: ["--max-allowed-packet=512M"]
-    volumes:
-      - "./data/db:/var/lib/mysql:delegated"
-    environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${MYSQL_DATABASE}
-      MYSQL_USER: ${MYSQL_USER}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-    restart: always
-    networks:
-      - default
+  # mysql:
+  #   image: mariadb:11.4
+  #   logging:
+  #     driver: none
+  #   command: ["--max-allowed-packet=512M"]
+  #   volumes:
+  #     - "./data/db:/var/lib/mysql:delegated"
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+  #     MYSQL_DATABASE: ${MYSQL_DATABASE}
+  #     MYSQL_USER: ${MYSQL_USER}
+  #     MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+  #   restart: always
+  #   networks:
+  #     - default
   litespeed:
     image: litespeedtech/openlitespeed:${OLS_VERSION}-${PHP_VERSION}
     container_name: litespeed
@@ -36,16 +36,16 @@ services:
       TZ: ${TimeZone}
     networks:
       - default
-  phpmyadmin:
-    image: bitnami/phpmyadmin:5.2.0-debian-11-r43
-    ports:
-      - 8082:80
-      - 4444:443
-    environment:
-        DATABASE_HOST: mysql
-    restart: always
-    networks:
-      - default
+  # phpmyadmin:
+  #   image: bitnami/phpmyadmin:5.2.0-debian-11-r43
+  #   ports:
+  #     - 8082:80
+  #     - 4444:443
+  #   environment:
+  #       DATABASE_HOST: mysql
+  #   restart: always
+  #   networks:
+  #     - default
   redis:
     image: "redis:alpine"
     logging:
